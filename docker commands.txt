@@ -1,0 +1,32 @@
+DOCKER COMMANDS
+--------------------------------
+
+1.docker -v
+2.docker --version
+3.docker version --format '{{.Server.Version}}'
+4.Ctrl + L - It is used for clearing all the commands.
+5.docker pull postgres
+6.docker image ls
+7.docker ps - shows the list of containers
+8.docker run -e POSTGRES_PASSWORD=mysecretpassword postgres - to run the container of postgres. but it will be different for different containers.
+9.ctrl + c- for shutting down the container
+10.docker container prune - It will delete all the containers which are present as either exited or running state.
+11.docker stop container_name or you can give it as docker stop container_id (Id can be four numbers and etc).
+12.docker container stop - stops all the containers.
+13.docker container ls -a - shows all the running and exited containers list.
+14.docker run -e POSTGRES_PASSWORD=mysecretpassword -d postgres - gives the detach mode container
+15.docker run --name yourname -e POSTGRES_PASSWORD=mysecretpassword -d tgres.
+16.docker container stop container-name or container-id
+17.docker container prune -deletes all the stopped containers
+18.docker image remove container-name or container-id - removes the image
+19.docker run --name give-name -p 2000:27017 -d redis - port mapping connection like connecting your host machine to the docker machine.
+20.docker logs container-name or container-id - logs is used for like if you find the errors inside your container or if you want to know what is happening inside the container then you can use this logs and you can specify timestamps and many more.
+21.docker image ls
+22.docker volume ls
+23.docker container start container-name or container-id
+24.docker network create mongo-network - before adding networks to the containers remember that you need to add the network first.
+25.docker run - 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password --name mongo-latest --net mongo-network -d mongo
+- this command is used for mongo database to connect with the mongo express application.
+26.docker run -p 8081:8081 -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=password -e ME_CONFIG_MONGODB_SERVER=mongo-latest --name mongo-express-latest --net mongo-network -d mongo-express
+-this command is used for connecting one container network with the another network.
+-here you need to give the server of the mongo db also.. else in the containers it will show that the mongo-express is exited.
